@@ -1,32 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Button, Switch, TouchableOpacity, StyleSheet, Animated, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, Animated } from 'react-native';
 import vehicles from '../vehicles.json';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RouteProp } from '@react-navigation/native';
+import { listStyle } from './styles/VehicleListStyle';
+import { Vehicle, VehicleListScreenProps } from './interfaces';
 
-interface Vehicle {
-    id: number;
-    name: string;
-    driverName: string;
-    category: string;
-    phoneNumber: string,
-    latitude: number;
-    longitude: number;
-}
-
-interface VehicleListScreenProps {
-    navigation: StackNavigationProp<any>;
-    route: RouteProp<any, any>;
-    isEnglish: boolean;
-    setIsEnglish: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const VehicleListScreen: React.FC<VehicleListScreenProps> = ({ navigation, route, isEnglish, setIsEnglish }) => {
+const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
+    navigation,
+    route,
+    isEnglish,
+    setIsEnglish
+}) => {
+    
     const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>(vehicles);
     const [isLoading, setIsLoading] = useState(true);
     const [animValues] = useState(vehicles.map(() => new Animated.Value(0)));
-    const windowWidth = Dimensions.get('window').width;
-
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -43,8 +30,6 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({ navigation, route
         return () => clearTimeout(timer);
     }, [isEnglish]);
 
-
-
     const filterVehicles = (category: string) => {
         const filtered = vehicles.filter((vehicle) => vehicle.category === category);
         setFilteredVehicles(filtered);
@@ -58,55 +43,27 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({ navigation, route
         navigation.navigate('Settings', { isEnglish: isEnglish, setIsEnglish: setIsEnglish });
     };
 
-
-    const styles = StyleSheet.create({
-        vehicleCard: {
-            borderWidth: 1,
-            borderColor: 'gray',
-            borderRadius: 8,
-            padding: 16,
-            marginBottom: 12,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-
-        },
-        vehicleName: {
-            fontWeight: 'bold',
-            fontSize: 16,
-        },
-        driverName: {
-            fontSize: 14,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-        },
-        category: {
-            fontSize: 14,
-            width: 100,
-        },
-        buttonContainer: {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            paddingHorizontal: windowWidth * 0.05,
-        },
-        languageSwitch: {
-            justifyContent: 'flex-end',
-
-        },
-    });
-
-
     return (
         <View>
-            <Button title={isEnglish ? 'Settings' : 'Настройки'} onPress={navigateToSettingsScreen} />
+            <TouchableOpacity style={listStyle.button}
+                onPress={navigateToSettingsScreen}
+            >
+                <Text style={listStyle.buttonText}>
+                    {isEnglish ? 'Settings' : 'Настройки'}
+                </Text>
+            </TouchableOpacity>
+
             {isLoading ? (
                 <Text>{isEnglish ? 'Loading...' : 'Загрузка...'}</Text>
             ) : (
                 filteredVehicles.map((vehicle, index) => (
-                    <TouchableOpacity key={vehicle.id} onPress={() => navigateToVehicleScreen(vehicle)}>
+                    <TouchableOpacity
+                        key={vehicle.id}
+                        onPress={() => navigateToVehicleScreen(vehicle)}
+                    >
                         <Animated.View
                             style={[
-                                styles.vehicleCard,
+                                listStyle.vehicleCard,
                                 {
                                     opacity: animValues[index],
                                     transform: [
@@ -120,20 +77,34 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({ navigation, route
                                 },
                             ]}
                         >
-                            <Text style={styles.vehicleName}>{vehicle.name}</Text>
-                            <Text style={styles.driverName}>{vehicle.driverName}</Text>
-                            <Text style={styles.category}>{vehicle.category}</Text>
+                            <Text style={listStyle.vehicleName}>{vehicle.name}</Text>
+                            <Text style={listStyle.driverName}>{vehicle.driverName}</Text>
+                            <Text style={listStyle.category}>{vehicle.category}</Text>
                         </Animated.View>
                     </TouchableOpacity>
                 ))
             )}
-
-            <View style={styles.buttonContainer}>
-                <Button title={isEnglish ? 'Cargo' : 'Грузовой'} onPress={() => filterVehicles(isEnglish ? 'Cargo' : 'Грузовой')} />
-                <Button title={isEnglish ? 'Passenger' : 'Пассажирский'} onPress={() => filterVehicles(isEnglish ? 'Passenger' : 'Пассажирский')} />
-                <Button title={isEnglish ? 'Special Transport' : 'Спецтранспорт'} onPress={() => filterVehicles(isEnglish ? 'Special Transport' : 'Спецтранспорт')} />
+            <View style={listStyle.buttonContainer}>
+                <TouchableOpacity style={listStyle.button}
+                    onPress={() => filterVehicles('Грузовой')}
+                >
+                    <Text style={listStyle.buttonText}>
+                        {isEnglish ? 'Cargo' : 'Грузовой'}
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={listStyle.button}
+                    onPress={() => filterVehicles('Пассажирский')}            >
+                    <Text style={listStyle.buttonText}>
+                        {isEnglish ? 'Passenger' : 'Пассажирский'}
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={listStyle.button}
+                    onPress={() => filterVehicles('Спецтранспорт')}            >
+                    <Text style={listStyle.buttonText}>
+                        {isEnglish ? 'Special Transport' : 'Спецтранспорт'}
+                    </Text>
+                </TouchableOpacity>
             </View>
-
         </View>
     );
 };

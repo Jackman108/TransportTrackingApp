@@ -1,92 +1,102 @@
 [
     {
         "id": 1,
-        "name": "ТС #01",
+        "name": "ТС #001",
         "driverName": "Андрей",
         "category": "Грузовой",
-        "phoneNumber": "+375291111111",
-        "latitude": 52.895233,
-        "longitude": 30.053785
+        "phoneNumber": "+375291111112",
+        "latitude": 52.795233,
+        "longitude": 30.053785,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
     },
     {
         "id": 2,
-        "name": "ТС #02",
+        "name": "ТС #002",
         "driverName": "Степан",
         "category": "Пассажирский",
-        "phoneNumber": "+375291111111",
-        "latitude": 52.895233,
-        "longitude": 30.053785
+        "phoneNumber": "+375291111113",
+        "latitude": 52.695233,
+        "longitude": 30.053785,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
     },
     {
         "id": 3,
-        "name": "ТС #03",
+        "name": "ТС #003",
         "driverName": "Николай",
         "category": "Спецтранспорт",
-        "phoneNumber": "+375291111111",
-        "latitude": 52.895233,
-        "longitude": 30.053785
+        "phoneNumber": "+375291111114",
+        "latitude": 52.595233,
+        "longitude": 30.053785,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
     },
     {
         "id": 4,
-        "name": "ТС #04",
+        "name": "ТС #004",
         "driverName": "Андрей",
         "category": "Грузовой",
-        "phoneNumber": "+375291111111",
-        "latitude": 52.895233,
-        "longitude": 30.053785
+        "phoneNumber": "+375291111115",
+        "latitude": 52.495233,
+        "longitude": 30.053785,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
     },
     {
         "id": 5,
-        "name": "ТС #05",
+        "name": "ТС #005",
         "driverName": "Степан",
         "category": "Пассажирский",
-        "phoneNumber": "+375291111111",
+        "phoneNumber": "+375291111116",
         "latitude": 52.895233,
-        "longitude": 30.053785
+        "longitude": 30.053785,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
     },
     {
         "id": 6,
-        "name": "ТС #06",
+        "name": "ТС #006",
         "driverName": "Николай",
         "category": "Спецтранспорт",
-        "phoneNumber": "+375291111111",
-        "latitude": 52.895233,
-        "longitude": 30.053785
+        "phoneNumber": "+375291111117",
+        "latitude": 52.395233,
+        "longitude": 30.053785,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
     },
     {
         "id": 7,
-        "name": "ТС #07",
+        "name": "ТС #007",
         "driverName": "Андрей",
         "category": "Грузовой",
-        "phoneNumber": "+375291111111",
-        "latitude": 52.895233,
-        "longitude": 30.053785
+        "phoneNumber": "+375291111118",
+        "latitude": 52.295233,
+        "longitude": 30.053785,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
     },
     {
         "id": 8,
-        "name": "ТС #08",
+        "name": "ТС #008",
         "driverName": "Степан",
         "category": "Пассажирский",
-        "phoneNumber": "+375291111111",
-        "latitude": 52.895233,
-        "longitude": 30.053785
+        "phoneNumber": "+375291111119",
+        "latitude": 52.195233,
+        "longitude": 30.353785,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
     },
     {
         "id": 9,
-        "name": "ТС #09",
+        "name": "ТС #009",
         "driverName": "Николай",
         "category": "Спецтранспорт",
-        "phoneNumber": "+375291111111",
+        "phoneNumber": "+375291111121",
         "latitude": 52.895233,
-        "longitude": 30.053785
+        "longitude": 30.253785,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
     },
     {
         "id": 10,
-        "name": "ТС #10",
+        "name": "ТС #010",
         "driverName": "Андрей",
         "category": "Грузовой",
-        "phoneNumber": "+375291111111",
+        "phoneNumber": "+375291111122",
         "latitude": 52.895233,
-        "longitude": 30.053785
+        "longitude": 30.153785,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
     }
 ]

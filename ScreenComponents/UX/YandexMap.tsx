@@ -1,11 +1,15 @@
 
 import { FC, useCallback, useEffect } from 'react';
 import { YMaps, Map, Placemark, ZoomControl, FullscreenControl } from '@pbe/react-yandex-maps';
-import  {MAPS_API_KEY}  from "@env";
+import { MAPS_API_KEY } from "@env";
+import {  Dimensions } from 'react-native';
+interface YandexMapProps {
+    defaultCenter: number[];
+    iconImage: string;
+}
+const YandexMap: FC<YandexMapProps> = ({ defaultCenter, iconImage }: YandexMapProps): JSX.Element => {
+    const yandexMapsApiKey: string = MAPS_API_KEY || '';
 
-const YandexMap: FC = (): JSX.Element => {
-    const yandexMapsApiKey: string  = MAPS_API_KEY || '';
-    const defaultCenter: number[] = [52.895233, 30.053785];
     const defaultZoom: number = 14;
 
     const setCookie = useCallback((name: string, value: string, days: number): void => {
@@ -19,20 +23,30 @@ const YandexMap: FC = (): JSX.Element => {
         setCookie('mycookie', 'myvalue', 30);
     }, [setCookie]);
 
+    const windowWidth = Dimensions.get('window').width;
+
     return (
         <section >
-            <YMaps query={{ apikey: yandexMapsApiKey }}>
+            <YMaps query={{ apikey: yandexMapsApiKey }} >  
                 <Map
                     defaultState={{
                         center: defaultCenter,
                         zoom: defaultZoom,
                     }}
-
                     options={{ suppressMapOpenBlock: true }}
+                    width={windowWidth}                    
                 >
                     <ZoomControl />
                     <FullscreenControl options={{ float: 'right' }} />
-                    <Placemark geometry={defaultCenter} />
+                    <Placemark
+                        geometry={defaultCenter}
+                        options={{
+                            iconLayout: 'default#image',
+                            iconImageHref: iconImage,
+                            iconImageSize: [40, 40],
+                            iconImageOffset: [-9, -24]
+                        }}
+                    />
                 </Map>
             </YMaps>
 

@@ -23,7 +23,7 @@ const App: React.FC = () => {
         </Stack.Screen>
 
         <Stack.Screen
-          name= "Vehicle"
+          name="Vehicle"
         >
           {(props) => <VehicleScreen {...props}
             isEnglish={isEnglish} />}
