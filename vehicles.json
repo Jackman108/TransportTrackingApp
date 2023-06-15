@@ -5,8 +5,8 @@
         "driverName": "Андрей",
         "category": "Грузовой",
         "phoneNumber": "+375291111111",
-        "latitude ": "52.895233",
-        "longitude": " 30.053785"
+        "latitude": 52.895233,
+        "longitude": 30.053785
     },
     {
         "id": 2,
@@ -14,17 +14,17 @@
         "driverName": "Степан",
         "category": "Пассажирский",
         "phoneNumber": "+375291111111",
-        "latitude ": "52.895233",
-        "longitude": " 30.053785"
+        "latitude": 52.895233,
+        "longitude": 30.053785
     },
     {
         "id": 3,
         "name": "ТС #03",
-        "driverName": "Никола",
+        "driverName": "Николай",
         "category": "Спецтранспорт",
         "phoneNumber": "+375291111111",
-        "latitude ": "52.895233",
-        "longitude": " 30.053785"
+        "latitude": 52.895233,
+        "longitude": 30.053785
     },
     {
         "id": 4,
@@ -32,8 +32,8 @@
         "driverName": "Андрей",
         "category": "Грузовой",
         "phoneNumber": "+375291111111",
-        "latitude ": "52.895233",
-        "longitude": " 30.053785"
+        "latitude": 52.895233,
+        "longitude": 30.053785
     },
     {
         "id": 5,
@@ -41,17 +41,17 @@
         "driverName": "Степан",
         "category": "Пассажирский",
         "phoneNumber": "+375291111111",
-        "latitude ": "52.895233",
-        "longitude": " 30.053785"
+        "latitude": 52.895233,
+        "longitude": 30.053785
     },
     {
         "id": 6,
         "name": "ТС #06",
-        "driverName": "Никола",
+        "driverName": "Николай",
         "category": "Спецтранспорт",
         "phoneNumber": "+375291111111",
-        "latitude ": "52.895233",
-        "longitude": " 30.053785"
+        "latitude": 52.895233,
+        "longitude": 30.053785
     },
     {
         "id": 7,
@@ -59,8 +59,8 @@
         "driverName": "Андрей",
         "category": "Грузовой",
         "phoneNumber": "+375291111111",
-        "latitude ": "52.895233",
-        "longitude": " 30.053785"
+        "latitude": 52.895233,
+        "longitude": 30.053785
     },
     {
         "id": 8,
@@ -68,17 +68,17 @@
         "driverName": "Степан",
         "category": "Пассажирский",
         "phoneNumber": "+375291111111",
-        "latitude ": "52.895233",
-        "longitude": " 30.053785"
+        "latitude": 52.895233,
+        "longitude": 30.053785
     },
     {
         "id": 9,
         "name": "ТС #09",
-        "driverName": "Никола",
+        "driverName": "Николай",
         "category": "Спецтранспорт",
         "phoneNumber": "+375291111111",
-        "latitude ": "52.895233",
-        "longitude": " 30.053785"
+        "latitude": 52.895233,
+        "longitude": 30.053785
     },
     {
         "id": 10,
@@ -86,7 +86,7 @@
         "driverName": "Андрей",
         "category": "Грузовой",
         "phoneNumber": "+375291111111",
-        "latitude ": "52.895233",
-        "longitude": " 30.053785"
+        "latitude": 52.895233,
+        "longitude": 30.053785
     }
 ]

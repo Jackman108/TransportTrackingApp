@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, Linking } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
-import { RouteProp } from '@react-navigation/native';
+import { ParamListBase, RouteProp, useRoute } from '@react-navigation/native';
 import YandexMap from './UX/YandexMap';
 
 interface Vehicle {
@@ -10,9 +9,14 @@ interface Vehicle {
     driverName: string;
     category: string;
 }
+interface VehicleScreenProps {
+    isEnglish: boolean;
+    route: RouteProp<any, any>;
 
-const VehicleScreen: React.FC<{ route: RouteProp<any, 'Vehicle'> }> = ({ route }) => {
-    const { vehicle } = route.params || {};
+}
+
+const VehicleScreen: React.FC<VehicleScreenProps> = ({  isEnglish, route }) => {
+    const { vehicle } = route.params as { vehicle: Vehicle };
 
     const callDriver = () => {
         Linking.openURL(`tel:${driverPhoneNumber}`);
@@ -29,11 +33,9 @@ const VehicleScreen: React.FC<{ route: RouteProp<any, 'Vehicle'> }> = ({ route }
             <Text>{vehicle?.name}</Text>
             <Text>{vehicle?.category}</Text>
             <Text>{vehicle?.driverName}</Text>
-            <Button title="Позвонить" onPress={callDriver} />
-            <Button title="Написать" onPress={messageDriver} />
-            
-                <YandexMap />
-            
+            <Button title={isEnglish ? "Call" : "Позвонить"} onPress={callDriver} />
+            <Button title={isEnglish ? "Write" : "Написать"} onPress={messageDriver} />
+            <YandexMap />
         </View>
     );
 };
