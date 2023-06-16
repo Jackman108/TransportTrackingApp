@@ -4,12 +4,21 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { settingStyle } from './styles/SettingStyle';
 import { SettingsScreenProps } from './interfaces';
 
-const SettingsScreen: React.FC<SettingsScreenProps> = ({ isEnglish, setIsEnglish, navigation }) => {
+const SettingsScreen: React.FC<SettingsScreenProps> = ({
+    isEnglish,
+    setIsEnglish,
+    navigation
+}) => {
+
     useEffect(() => {
         const fetchLanguage = async () => {
             try {
                 const language = await AsyncStorage.getItem('isEnglish');
-                setIsEnglish(language === 'true');
+                if (language === 'isEnglish') {
+                    setIsEnglish(false);
+                } else {
+                    setIsEnglish(language === 'true');
+                }
             } catch (error) {
                 console.log(error);
             }
@@ -29,12 +38,11 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({ isEnglish, setIsEnglish
 
     return (
         <View>
-            <Text
-                style={settingStyle.textStyle}
-            >
-                {isEnglish ? 'Change Language' : 'Изменить язык'}
+            <Text style={settingStyle.textStyle}>
+                {isEnglish ? 'Change Language to' : 'Изменить язык на:'}
             </Text>
-            <TouchableOpacity style={settingStyle.button}
+            <TouchableOpacity
+                style={settingStyle.button}
                 onPress={toggleLanguage}>
                 <Text style={settingStyle.buttonText}>
                     {isEnglish ? 'Русский' : 'English'}

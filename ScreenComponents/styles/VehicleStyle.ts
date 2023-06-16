@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const VehicleStyle = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
     },
@@ -17,8 +17,12 @@ export const VehicleStyle = StyleSheet.create({
         fontSize: 18,
         marginBottom: 5,
     },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+    },
     button: {
-        marginTop: 20,
+        margin: 20,
         width: 150,
         paddingVertical: 10,
         paddingHorizontal: 20,

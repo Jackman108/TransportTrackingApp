@@ -14,6 +14,7 @@ const App: React.FC = () => {
       <Stack.Navigator>
         <Stack.Screen
           name="Vehicle List"
+          options={{ title: isEnglish ? 'Vehicle List' : 'Список Транспортных Средств' }}
         >
           {(props) =>
             <VehicleListScreen {...props}
@@ -24,13 +25,20 @@ const App: React.FC = () => {
 
         <Stack.Screen
           name="Vehicle"
+          options={{ title: isEnglish ? 'Vehicle Details' : 'Детали Транспортного Средства' }}
+
         >
-          {(props) => <VehicleScreen {...props}
+          {(props) => 
+          <VehicleScreen {...props}
             isEnglish={isEnglish} />}
         </Stack.Screen>
 
-        <Stack.Screen name="Settings">
-          {(props) => <SettingsScreen {...props}
+        <Stack.Screen 
+        name="Settings"
+        options={{ title: isEnglish ? 'Settings' : 'Настройки' }}
+        >
+          {(props) => 
+          <SettingsScreen {...props}
             isEnglish={isEnglish}
             setIsEnglish={setIsEnglish}
           />}

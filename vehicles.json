@@ -5,8 +5,8 @@
         "driverName": "Андрей",
         "category": "Грузовой",
         "phoneNumber": "+375291111112",
-        "latitude": 52.795233,
-        "longitude": 30.053785,
+        "latitude": 55.502691,
+        "longitude": 37.671532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
     },
     {
@@ -15,8 +15,8 @@
         "driverName": "Степан",
         "category": "Пассажирский",
         "phoneNumber": "+375291111113",
-        "latitude": 52.695233,
-        "longitude": 30.053785,
+        "latitude": 55.401691,
+        "longitude": 37.670532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
     },
     {
@@ -25,8 +25,8 @@
         "driverName": "Николай",
         "category": "Спецтранспорт",
         "phoneNumber": "+375291111114",
-        "latitude": 52.595233,
-        "longitude": 30.053785,
+        "latitude": 55.003691,
+        "longitude": 37.672532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
     },
     {
@@ -35,8 +35,8 @@
         "driverName": "Андрей",
         "category": "Грузовой",
         "phoneNumber": "+375291111115",
-        "latitude": 52.495233,
-        "longitude": 30.053785,
+        "latitude": 55.804691,
+        "longitude": 37.373532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
     },
     {
@@ -45,8 +45,8 @@
         "driverName": "Степан",
         "category": "Пассажирский",
         "phoneNumber": "+375291111116",
-        "latitude": 52.895233,
-        "longitude": 30.053785,
+        "latitude": 55.805691,
+        "longitude": 37.974532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
     },
     {
@@ -55,8 +55,8 @@
         "driverName": "Николай",
         "category": "Спецтранспорт",
         "phoneNumber": "+375291111117",
-        "latitude": 52.395233,
-        "longitude": 30.053785,
+        "latitude": 55.406691,
+        "longitude": 37.675532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
     },
     {
@@ -65,8 +65,8 @@
         "driverName": "Андрей",
         "category": "Грузовой",
         "phoneNumber": "+375291111118",
-        "latitude": 52.295233,
-        "longitude": 30.053785,
+        "latitude": 55.087691,
+        "longitude": 37.676532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
     },
     {
@@ -75,8 +75,8 @@
         "driverName": "Степан",
         "category": "Пассажирский",
         "phoneNumber": "+375291111119",
-        "latitude": 52.195233,
-        "longitude": 30.353785,
+        "latitude": 55.808691,
+        "longitude": 37.277532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
     },
     {
@@ -85,8 +85,8 @@
         "driverName": "Николай",
         "category": "Спецтранспорт",
         "phoneNumber": "+375291111121",
-        "latitude": 52.895233,
-        "longitude": 30.253785,
+        "latitude": 55.899691,
+        "longitude": 37.678532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
     },
     {
@@ -95,8 +95,8 @@
         "driverName": "Андрей",
         "category": "Грузовой",
         "phoneNumber": "+375291111122",
-        "latitude": 52.895233,
-        "longitude": 30.153785,
+        "latitude": 55.811691,
+        "longitude": 37.669532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
     }
 ]
