@@ -3,7 +3,7 @@ import { FC, useCallback, useEffect } from 'react';
 import { YMaps, Map, Placemark, ZoomControl, FullscreenControl } from '@pbe/react-yandex-maps';
 import { MAPS_API_KEY } from "@env";
 import {  Dimensions } from 'react-native';
-import { YandexMapProps } from '../interfaces';
+import { YandexMapProps } from '../../interfaces/interfaces';
 
 
 //Компонент Яндекс.Карты

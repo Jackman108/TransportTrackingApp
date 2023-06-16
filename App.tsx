@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
  * Главный компонент приложения для управления навигацией между экранами.
  */
 const App: React.FC = () => {
-  const [isEnglish, setIsEnglish] = useState(false); // Изменили значение по умолчанию на false
+  const [isNotEnglish, setIsNotEnglish] = useState(false);
 
   return (
     <NavigationContainer>
@@ -20,35 +20,43 @@ const App: React.FC = () => {
         {/* Экран со списком транспортных средств */}
         <Stack.Screen
           name="Vehicle List"
-          options={{ title: isEnglish ? 'Список Транспортных Средств' : 'Vehicle List' }}
+          options={{
+            title: isNotEnglish ? 'Список Транспортных Средств' : 'Vehicle List',
+            headerTitleAlign: 'center',
+          }}
         >
           {(props) =>
             <VehicleListScreen {...props}
-              isEnglish={isEnglish}
-              setIsEnglish={setIsEnglish}
+              isNotEnglish={isNotEnglish}
+              setIsNotEnglish={setIsNotEnglish}
             />}
         </Stack.Screen>
 
         {/* Экран с деталями транспортного средства */}
         <Stack.Screen
           name="Vehicle"
-          options={{ title: isEnglish ? 'Детали Транспортного Средства' : 'Vehicle Details' }}
-
+          options={{
+            title: isNotEnglish ? 'Детали Транспортного Средства' : 'Vehicle Details',
+            headerTitleAlign: 'center'
+          }}
         >
           {(props) =>
             <VehicleScreen {...props}
-              isEnglish={isEnglish} />}
+              isNotEnglish={isNotEnglish} />}
         </Stack.Screen>
 
         {/* Экран с настройками */}
         <Stack.Screen
           name="Settings"
-          options={{ title: isEnglish ? 'Настройки' : 'Settings' }}
+          options={{
+            title: isNotEnglish ? 'Настройки' : 'Settings',
+            headerTitleAlign: 'center'
+          }}
         >
           {(props) =>
             <SettingsScreen {...props}
-              isEnglish={isEnglish}
-              setIsEnglish={setIsEnglish}
+              isNotEnglish={isNotEnglish}
+              setIsNotEnglish={setIsNotEnglish}
             />}
         </Stack.Screen>
       </Stack.Navigator>

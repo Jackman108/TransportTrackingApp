@@ -7,8 +7,10 @@ import { StackNavigationProp } from "@react-navigation/stack";
 export interface Vehicle {
     id: number; // Уникальный идентификатор ТС
     name: string; // Название ТС
-    driverName: string; // Имя водителя
-    category: string; // Категория ТС
+    driverNameRu: string; // Имя водителя
+    driverNameEn: string; // Имя водителя
+    categoryRu: string; // Категория ТС
+    categoryEn: string; // Категория ТС
     phoneNumber: string; // Номер телефона
     latitude: number; // Широта
     longitude: number; // Долгота
@@ -19,7 +21,7 @@ export interface Vehicle {
  * Интерфейс параметров экрана с информацией о ТС.
  */
 export interface VehicleScreenProps {
-    isEnglish: boolean; // Флаг, указывающий на текущий язык приложения
+    isNotEnglish: boolean; // Флаг, указывающий на текущий язык приложения
     route: RouteProp<any, any>; // Маршрут экрана
 }
 
@@ -29,16 +31,16 @@ export interface VehicleScreenProps {
 export interface VehicleListScreenProps {
     navigation: StackNavigationProp<any>; // Навигационный объект для перехода между экранами
     route: RouteProp<any, any>; // Маршрут экрана
-    isEnglish: boolean; // Флаг, указывающий на текущий язык приложения
-    setIsEnglish: React.Dispatch<React.SetStateAction<boolean>>; // Функция для изменения флага языка
+    isNotEnglish: boolean; // Флаг, указывающий на текущий язык приложения
+    setIsNotEnglish: React.Dispatch<React.SetStateAction<boolean>>; // Функция для изменения флага языка
 }
 
 /**
  * Интерфейс параметров экрана с настройками.
  */
 export interface SettingsScreenProps {
-    isEnglish: boolean; // Флаг, указывающий на текущий язык приложения
-    setIsEnglish: React.Dispatch<React.SetStateAction<boolean>>; // Функция для изменения флага языка
+    isNotEnglish: boolean; // Флаг, указывающий на текущий язык приложения
+    setIsNotEnglish: React.Dispatch<React.SetStateAction<boolean>>; // Функция для изменения флага языка
     navigation: StackNavigationProp<any>; // Навигационный объект для перехода между экранами
 }
 

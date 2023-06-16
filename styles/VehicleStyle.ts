@@ -5,7 +5,7 @@ export const VehicleStyle = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#fdeaa8',
     },
     title: {
         fontSize: 24,
@@ -14,7 +14,8 @@ export const VehicleStyle = StyleSheet.create({
         opacity: 0.6,
     },
     text: {
-        fontSize: 18,
+        fontSize: 20,
+        fontWeight: 'bold',
         marginBottom: 5,
     },
     buttonContainer: {
