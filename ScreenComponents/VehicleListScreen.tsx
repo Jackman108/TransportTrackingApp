@@ -4,6 +4,7 @@ import vehicles from '../vehicles.json';
 import { listStyle } from './styles/VehicleListStyle';
 import { Vehicle, VehicleListScreenProps } from './interfaces';
 
+// Экран со списком транспортных средств
 const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
     navigation,
     isEnglish,
@@ -14,8 +15,10 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
     const animValues = useRef<Animated.Value[]>([]);
 
     useEffect(() => {
+        // Создаем анимированные значения для карточек транспортных средств
         animValues.current = vehicles.map(() => new Animated.Value(0));
 
+        // Имитация загрузки данных
         const timer = setTimeout(() => {
             setIsLoading(false);
             Animated.stagger(500, animValues.current.map((value) => {
@@ -30,15 +33,18 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
         return () => clearTimeout(timer);
     }, [animValues]);
 
+    // Фильтрация транспортных средств по категории
     const filterVehicles = (category: string) => {
         const filtered = vehicles.filter((vehicle) => vehicle.category === category);
         setFilteredVehicles(filtered);
     };
 
+    // Переход на экран с деталями транспортного средства
     const navigateToVehicleScreen = (vehicle: Vehicle) => {
         navigation.navigate('Vehicle', { vehicle });
     };
 
+    // Переход на экран с настройками
     const navigateToSettingsScreen = () => {
         navigation.navigate('Settings', { setIsEnglish: setIsEnglish, isEnglish: isEnglish });
     };
@@ -47,12 +53,12 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
         <View>
             <TouchableOpacity style={listStyle.button} onPress={navigateToSettingsScreen}            >
                 <Text style={listStyle.buttonText}>
-                    {isEnglish ? 'Settings' : 'Настройки'}
+                    {isEnglish ?   'Настройки':'Settings'}
                 </Text>
             </TouchableOpacity>
 
             {isLoading ? (
-                <Text>{isEnglish ? 'Loading...' : 'Загрузка...'}</Text>
+                <Text>{isEnglish ?   'Загрузка...':'Loading...'}</Text>
             ) : (
                 filteredVehicles.map((vehicle, index) => (
                     <TouchableOpacity
@@ -78,7 +84,7 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
                             <Text style={listStyle.vehicleName}>{vehicle.name}</Text>
                             <Text style={listStyle.driverName}>{vehicle.driverName}</Text>
                             <Text style={listStyle.category}>
-                                {isEnglish
+                                {!isEnglish
                                     ? (() => {
                                         switch (vehicle.category) {
                                             case 'Грузовой':
@@ -103,7 +109,7 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
                     onPress={() => filterVehicles('Грузовой')}
                 >
                     <Text style={listStyle.buttonText}>
-                        {isEnglish ? 'Cargo' : 'Грузовой'}
+                        {!isEnglish ? 'Cargo' : 'Грузовой'}
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -111,7 +117,7 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
                     onPress={() => filterVehicles('Пассажирский')}
                 >
                     <Text style={listStyle.buttonText}>
-                        {isEnglish ? 'Passenger' : 'Пассажирский'}
+                        {!isEnglish ? 'Passenger' : 'Пассажирский'}
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -119,7 +125,7 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
                     onPress={() => filterVehicles('Спецтранспорт')}
                 >
                     <Text style={listStyle.buttonText}>
-                        {isEnglish ? 'Special Transport' : 'Спецтранспорт'}
+                        {!isEnglish ? 'Special Transport' : 'Спецтранспорт'}
                     </Text>
                 </TouchableOpacity>
             </View>
