@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useCallback } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { settingStyle } from '../styles/SettingStyle';
@@ -14,6 +14,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({
     // Функция для переключения языка
     const toggleLanguage = useCallback(async () => {
         try {
+
             // Сохраняем новое значение выбранного языка в хранилище AsyncStorage
             await AsyncStorage.setItem('isEnglish', String(isNotEnglish));
 

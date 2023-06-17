@@ -4,7 +4,7 @@
 
 ## Установка
 
-1. Склонируйте репозиторий: `git clone https://github.com/Jackman108/TransportTrackingApp.git`
+1. Клонируйте репозиторий: `git clone https://github.com/Jackman108/TransportTrackingApp.git`
 2. Перейдите в каталог проекта: `cd TransportTrackingApp`
 3. Установите зависимости: `npm install`установить зависимости.
 

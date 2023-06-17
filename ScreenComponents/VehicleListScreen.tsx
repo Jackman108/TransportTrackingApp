@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { View, Text, TouchableOpacity, Animated, FlatList, Image  } from 'react-native';
+import { View, Text, TouchableOpacity, Animated, FlatList, Image } from 'react-native';
 import vehicles from '../vehicles.json';
 import { listStyle } from '../styles/VehicleListStyle';
 import { Vehicle, VehicleListScreenProps } from '../interfaces/interfaces';
@@ -30,7 +30,7 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
             );
 
             // Оптимизированная анимация с вычислением задержки
-            Animated.stagger(animationPromises.length * 100, animationPromises).start();
+            Animated.stagger(animationPromises.length * 20, animationPromises).start();
         }, 1000);
         return () => clearTimeout(timer);
     }, []);
@@ -114,11 +114,14 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
                     )}
                 />
             ) : (
-                <Text                     style={listStyle.loading}                >
+
+                <Text style={listStyle.loading}>
                     {isNotEnglish ? 'Загрузка...' : 'Loading...'}
-                    </Text>
+                </Text>
+
             )}
             <View style={listStyle.buttonContainer}>
+
                 <TouchableOpacity
                     style={listStyle.button}
                     onPress={() => filterVehicles(isNotEnglish ? 'Cargo' : 'Грузовой')}
@@ -127,6 +130,7 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
                         {!isNotEnglish ? 'Cargo' : 'Грузовой'}
                     </Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity
                     style={listStyle.button}
                     onPress={() => filterVehicles(isNotEnglish ? 'Passenger' : 'Пассажирский')}
@@ -135,6 +139,7 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
                         {!isNotEnglish ? 'Passenger' : 'Пассажирский'}
                     </Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity
                     style={listStyle.button}
                     onPress={() => filterVehicles(isNotEnglish ? 'Special' : 'Спецтранспорт')}
@@ -143,6 +148,7 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
                         {!isNotEnglish ? 'Special' : 'Специальный'}
                     </Text>
                 </TouchableOpacity>
+
             </View>
         </View>
     );

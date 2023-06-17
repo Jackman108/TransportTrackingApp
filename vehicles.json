@@ -118,5 +118,77 @@
         "latitude": 55.811691,
         "longitude": 37.669532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
+    },
+    {
+        "id": 11,
+        "name": "ТС #011",
+        "driverNameRu": "Ольга",
+        "driverNameEn": "Olga",
+        "categoryRu": "Пассажирский",
+        "categoryEn": "Passenger",
+        "phoneNumber": "+375291111123",
+        "latitude": 55.709691,
+        "longitude": 37.675532,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
+    },
+    {
+        "id": 12,
+        "name": "ТС #012",
+        "driverNameRu": "Павел",
+        "driverNameEn": "Paul",
+        "categoryRu": "Спецтранспорт",
+        "categoryEn": "Special",
+        "phoneNumber": "+375291111124",
+        "latitude": 55.607691,
+        "longitude": 37.678532,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
+    },
+    {
+        "id": 13,
+        "name": "ТС #013",
+        "driverNameRu": "Елена",
+        "driverNameEn": "Helen",
+        "categoryRu": "Грузовой",
+        "categoryEn": "Cargo",
+        "phoneNumber": "+375291111125",
+        "latitude": 55.910691,
+        "longitude": 37.979532,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
+    },
+    {
+        "id": 14,
+        "name": "ТС #014",
+        "driverNameRu": "Мария",
+        "driverNameEn": "Maria",
+        "categoryRu": "Пассажирский",
+        "categoryEn": "Passenger",
+        "phoneNumber": "+375291111126",
+        "latitude": 55.811691,
+        "longitude": 37.877532,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
+    },
+    {
+        "id": 15,
+        "name": "ТС #015",
+        "driverNameRu": "Антон",
+        "driverNameEn": "Anton",
+        "categoryRu": "Спецтранспорт",
+        "categoryEn": "Special",
+        "phoneNumber": "+375291111127",
+        "latitude": 55.609691,
+        "longitude": 37.875532,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
+    },
+    {
+        "id": 16,
+        "name": "ТС #016",
+        "driverNameRu": "Алексей",
+        "driverNameEn": "Alexey",
+        "categoryRu": "Грузовой",
+        "categoryEn": "Cargo",
+        "phoneNumber": "+375291111128",
+        "latitude": 55.710691,
+        "longitude": 37.672532,
+        "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
     }
 ]

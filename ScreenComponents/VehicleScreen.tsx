@@ -15,7 +15,9 @@ const VehicleScreen: FC<VehicleScreenProps> = ({ isNotEnglish, route }) => {
 
     // Открывает WhatsApp для отправки сообщения водителю
     const messageDriver = () => {
-        Linking.openURL(`https://api.whatsapp.com/send?phone=${vehicle.phoneNumber}&text=Добрый%20день,%20подскажите%20пожалуйста,%20какой%20номер%20заказа%20у%20вас%20сейчас%20в%20работе`);
+        const messageRu = '&text=Добрый%20день,%20подскажите%20пожалуйста,%20какой%20номер%20заказа%20у%20вас%20сейчас%20в%20работе?';
+        const messageEn = '&text=Good%20afternoon,%20could%20you,%20please%20tell%20me%20what%20order%20number%20you%20have%20in%20the%20works%20now?';
+        Linking.openURL(`https://api.whatsapp.com/send?phone=${vehicle.phoneNumber}${isNotEnglish ? messageRu : messageEn}`);
     };
 
     return (
