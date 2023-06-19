@@ -1,11 +1,14 @@
-import { FC } from 'react';
-import { View, Text, Linking, TouchableOpacity } from 'react-native';
-import YandexMap from './MapComponent/YandexMap';
+import { View, Text, Linking, TouchableOpacity, Platform } from 'react-native';
+import VehicleMap from '../Components/VehicleMap';
 import { VehicleStyle } from '../styles/VehicleStyle';
 import { Vehicle, VehicleScreenProps } from '../interfaces/interfaces';
+import VehicleMapYandex from '../Components/VehicleMapYandex';
 
 // Экран с деталями транспортного средства
-const VehicleScreen: FC<VehicleScreenProps> = ({ isNotEnglish, route }) => {
+const VehicleScreen = ({
+    isNotEnglish,
+    route,
+}: VehicleScreenProps): JSX.Element => {
     const { vehicle } = route.params as { vehicle: Vehicle };
 
     // Вызывает звонок к водителю
@@ -15,14 +18,16 @@ const VehicleScreen: FC<VehicleScreenProps> = ({ isNotEnglish, route }) => {
 
     // Открывает WhatsApp для отправки сообщения водителю
     const messageDriver = () => {
-        const messageRu = '&text=Добрый%20день,%20подскажите%20пожалуйста,%20какой%20номер%20заказа%20у%20вас%20сейчас%20в%20работе?';
-        const messageEn = '&text=Good%20afternoon,%20could%20you,%20please%20tell%20me%20what%20order%20number%20you%20have%20in%20the%20works%20now?';
-        Linking.openURL(`https://api.whatsapp.com/send?phone=${vehicle.phoneNumber}${isNotEnglish ? messageRu : messageEn}`);
+        const messageRu = encodeURIComponent('Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе?');
+        const messageEn = encodeURIComponent('Good afternoon, could you, please tell me what order number you have in the works now?');
+        Linking.openURL(`https://api.whatsapp.com/send?phone=${vehicle.phoneNumber}&text=${isNotEnglish ? messageRu : messageEn}`);
     };
 
     return (
         <View style={VehicleStyle.container}>
-            <YandexMap defaultCenter={[vehicle.latitude, vehicle.longitude]} iconImage={vehicle.iconImage} />
+            {/* Для запуска в web, раскомментируйте блок с VehicleMapYandex и закомментируйте VehicleMap*/}
+            {/*<VehicleMapYandex latitude={vehicle.latitude} longitude={vehicle.longitude} iconImage={vehicle.iconImage} />*/}
+            <VehicleMap latitude={vehicle.latitude} longitude={vehicle.longitude} iconImage={vehicle.iconImage} />
             <Text style={VehicleStyle.title}>{vehicle.name}</Text>
             <Text style={VehicleStyle.title}>
                 {isNotEnglish
@@ -38,12 +43,12 @@ const VehicleScreen: FC<VehicleScreenProps> = ({ isNotEnglish, route }) => {
             <View style={VehicleStyle.buttonContainer}>
                 <TouchableOpacity style={VehicleStyle.button} onPress={callDriver}>
                     <Text style={VehicleStyle.buttonText}>
-                        {!isNotEnglish ? 'Call' : 'Позвонить'}
+                        {isNotEnglish ? 'Позвонить' : 'Call'}
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={VehicleStyle.button} onPress={messageDriver}>
                     <Text style={VehicleStyle.buttonText}>
-                        {!isNotEnglish ? 'Write' : 'Написать'}
+                        {isNotEnglish ? 'Написать' : 'Write'}
                     </Text>
                 </TouchableOpacity>
             </View>

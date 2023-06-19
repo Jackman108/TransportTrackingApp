@@ -6,13 +6,17 @@
 
 1. Клонируйте репозиторий: `git clone https://github.com/Jackman108/TransportTrackingApp.git`
 2. Перейдите в каталог проекта: `cd TransportTrackingApp`
-3. Установите зависимости: `npm install`установить зависимости.
+3. Установите зависимости: `npm install`.
 
 ## Запуск
 
-- iOS: `npm run ios`
-- Android: `npm run android`
-- Web: `npm run web`
+1. Для запуска на Android: `npm run android`
+2. Для запуска на iOS: `npm run ios`
+3. Для запуска на вебе: `npm run web`.
+
+ Для запуска через Expo: `npm start`,
+ Для Android: Сканируйте QR-code приложением Expo Go.
+ Для запуска в web: в ScreenComponents/VehicleScreen - раскомментируйте блок с VehicleMapYandex и закомментируйте VehicleMap .
 
 ## Использование
 
@@ -23,7 +27,7 @@
 - React Native
 - TypeScript
 - React Navigation
-- Yandex Maps
+- React Native Map
 
 ## Лицензия
 

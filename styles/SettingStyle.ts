@@ -5,17 +5,20 @@ export const settingStyle = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fdeaa8',
+        alignItems: 'center',
+
     },
     button: {
-        marginTop: 20,
+        marginTop: 250,
         width: 150,
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,
         backgroundColor: '#082567',
         justifyContent: 'center',
+        justifyItems: 'center',
         alignItems: 'center',
-        margin: 'auto'
+        marginHorizontal: 'auto'
     },
     buttonText: {
         color: '#FFFFFF',
@@ -29,5 +32,6 @@ export const settingStyle = StyleSheet.create({
         paddingTop: 16,
         paddingBottom: 16,
         fontSize: 20,
+        width: 400,
     },
 });

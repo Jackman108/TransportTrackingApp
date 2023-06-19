@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import VehicleListScreen from './ScreenComponents/VehicleListScreen';
@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 /**
  * Главный компонент приложения для управления навигацией между экранами.
  */
-const App: React.FC = () => {
+const App: React.FC = (): JSX.Element => {
   const [isNotEnglish, setIsNotEnglish] = useState(false);
 
   return (
@@ -28,7 +28,6 @@ const App: React.FC = () => {
           {(props) =>
             <VehicleListScreen {...props}
               isNotEnglish={isNotEnglish}
-              setIsNotEnglish={setIsNotEnglish}
             />}
         </Stack.Screen>
 
@@ -36,13 +35,14 @@ const App: React.FC = () => {
         <Stack.Screen
           name="Vehicle"
           options={{
-            title: isNotEnglish ? 'Детали Транспортного Средства' : 'Vehicle Details',
+            title: isNotEnglish ? 'Детали ТС' : 'Vehicle Details',
             headerTitleAlign: 'center'
           }}
         >
           {(props) =>
             <VehicleScreen {...props}
-              isNotEnglish={isNotEnglish} />}
+              isNotEnglish={isNotEnglish}
+            />}
         </Stack.Screen>
 
         {/* Экран с настройками */}

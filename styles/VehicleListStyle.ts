@@ -16,6 +16,7 @@ export const listStyle = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        
     },
 
     vehicleName: {
@@ -37,18 +38,18 @@ export const listStyle = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        paddingHorizontal: windowWidth * 0.02,
+        paddingHorizontal: windowWidth * 0.01,
         marginVertical: 10,
     },
 
     button: {
         paddingVertical: 10,
-        paddingHorizontal: 6,
+        paddingHorizontal: 10,
         borderRadius: 5,
         backgroundColor: '#082567',
         justifyContent: 'center',
         alignItems: 'center',
-        marginHorizontal: 1,
+        marginHorizontal: 2,
 
     },
 
@@ -57,7 +58,6 @@ export const listStyle = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 16,
-        letterSpacing: 1.1,
     },
 
     header: {

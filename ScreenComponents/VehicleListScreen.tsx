@@ -1,18 +1,43 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { View, Text, TouchableOpacity, Animated, FlatList, Image } from 'react-native';
+import { useEffect, useState, useRef, useCallback } from 'react';
+import { View, Text, TouchableOpacity, Animated, FlatList, Image, ScrollView } from 'react-native';
 import vehicles from '../vehicles.json';
 import { listStyle } from '../styles/VehicleListStyle';
 import { Vehicle, VehicleListScreenProps } from '../interfaces/interfaces';
+import VehicleItem from '../Components/VehicleItem';
+import ControlButton from '../Components/ControlButton';
+
 
 // Экран со списком транспортных средств
-const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
+const VehicleListScreen = ({
     navigation,
-    isNotEnglish,
-    setIsNotEnglish
-}) => {
+    isNotEnglish
+}: VehicleListScreenProps): JSX.Element => {
+    // Состояния
     const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>(vehicles);
     const [isLoading, setIsLoading] = useState(true);
-    const animValues = useRef<Animated.Value[]>([]);
+    const animValues = useRef<Array<Animated.Value>>([]);
+
+    // Константы для текстовых элементов
+    const resetIcon = 'https://cdn-icons-png.flaticon.com/128/5053/5053296.png';
+    const cargoButtonText = isNotEnglish ? 'Грузовой' : 'Cargo';
+    const specialButtonText = isNotEnglish ? 'Специальный' : 'Special';
+    const passengerButtonText = isNotEnglish ? 'Пассажирский' : 'Passenger';
+    const settingsButtonText = isNotEnglish ? 'Настройки' : 'Settings';
+    const loadingButtonText = isNotEnglish ? 'Загрузка...' : 'Loading...';
+
+    // Анимация карточек транспортных средств
+    const animateVehicleCards = () => {
+        const animationPromises = animValues.current.map((value) =>
+            Animated.timing(value, {
+                toValue: 1,
+                duration: 500,
+                useNativeDriver: true,
+            })
+        );
+
+        // Оптимизированная анимация с вычислением задержки
+        Animated.stagger(animationPromises.length * 20, animationPromises).start();
+    };
 
     useEffect(() => {
         // Создаем анимированные значения для карточек транспортных средств
@@ -21,25 +46,16 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
         // Имитация загрузки данных
         const timer = setTimeout(() => {
             setIsLoading(false);
-            const animationPromises = animValues.current.map((value) =>
-                Animated.timing(value, {
-                    toValue: 1,
-                    duration: 500,
-                    useNativeDriver: true,
-                })
-            );
-
-            // Оптимизированная анимация с вычислением задержки
-            Animated.stagger(animationPromises.length * 20, animationPromises).start();
+            animateVehicleCards();
         }, 1000);
         return () => clearTimeout(timer);
-    }, []);
+    }, [vehicles, isNotEnglish]);
 
     // Фильтрация транспортных средств по категории
     const filterVehicles = useCallback(
         (category: string) => {
             const filtered = vehicles.filter((vehicle) => {
-                return isNotEnglish ? vehicle.categoryEn === category : vehicle.categoryRu === category;
+                return !isNotEnglish ? vehicle.categoryEn === category : vehicle.categoryRu === category;
             });
             setFilteredVehicles(filtered);
         },
@@ -53,102 +69,70 @@ const VehicleListScreen: React.FC<VehicleListScreenProps> = ({
 
     // Переход на экран с настройками
     const navigateToSettingsScreen = () => {
-        navigation.navigate('Settings', { setIsEnglish: setIsNotEnglish, isEnglish: isNotEnglish });
+        navigation.navigate('Settings', { isNotEnglish });
+    };
+
+    // Функция для рендеринга элемента списка транспортных средств
+    const renderVehicleItem = ({ item, index }: { item: Vehicle; index: number }) => {
+        return (
+            <VehicleItem
+                item={item}
+                index={index}
+                onPress={navigateToVehicleScreen}
+                isNotEnglish={isNotEnglish}
+                animValue={animValues.current[index]}
+            />
+        );
     };
 
     return (
         <View style={listStyle.container}>
-            <TouchableOpacity style={listStyle.button} onPress={navigateToSettingsScreen}            >
-                <Text style={listStyle.buttonText}>
-                    {isNotEnglish ? 'Настройки' : 'Settings'}
-                </Text>
-            </TouchableOpacity>
-
+            <ControlButton
+                onPress={navigateToSettingsScreen}
+                text={settingsButtonText}
+            />
             <View style={listStyle.header}>
                 <TouchableOpacity
                     style={listStyle.resetButton}
                     onPress={() => setFilteredVehicles(vehicles)}
                 >
                     <Image
-                        source={{ uri: 'https://cdn-icons-png.flaticon.com/128/5053/5053296.png' }}
+                        source={{ uri: resetIcon }}
                         style={listStyle.resetIcon}
                     />
                 </TouchableOpacity>
             </View>
 
             {!isLoading ? (
-                <FlatList
-                    data={filteredVehicles}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item, index }) => (
-                        <TouchableOpacity onPress={() => navigateToVehicleScreen(item)}>
-                            <Animated.View
-                                style={[
-                                    listStyle.vehicleCard,
-                                    {
-                                        opacity: animValues.current[index],
-                                        transform: [
-                                            {
-                                                translateY: animValues.current[index].interpolate({
-                                                    inputRange: [0, 1],
-                                                    outputRange: [16, 0],
-                                                }),
-                                            },
-                                        ],
-                                    },
-                                ]}
-                            >
-                                <Text style={listStyle.vehicleName}>{item.name}</Text>
-                                <Text style={listStyle.driverName}>
-                                    {isNotEnglish
-                                        ? item.driverNameRu
-                                        : item.driverNameEn}
-                                </Text>
-                                <Text style={listStyle.category}>
-                                    {isNotEnglish
-                                        ? item.categoryRu
-                                        : item.categoryEn}
-                                </Text>
-                            </Animated.View>
-                        </TouchableOpacity>
-                    )}
-                />
+                // Если загрузка завершена, отображаем список транспортных средств
+                <ScrollView>
+                    {filteredVehicles.map((vehicle, index) => (
+                        <View key={vehicle.id}>
+                            {renderVehicleItem({ item: vehicle, index })}
+                        </View>
+                    ))}
+                </ScrollView>
             ) : (
 
                 <Text style={listStyle.loading}>
-                    {isNotEnglish ? 'Загрузка...' : 'Loading...'}
+                    {loadingButtonText}
                 </Text>
 
             )}
             <View style={listStyle.buttonContainer}>
-
-                <TouchableOpacity
-                    style={listStyle.button}
-                    onPress={() => filterVehicles(isNotEnglish ? 'Cargo' : 'Грузовой')}
-                >
-                    <Text style={listStyle.buttonText}>
-                        {!isNotEnglish ? 'Cargo' : 'Грузовой'}
-                    </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={listStyle.button}
-                    onPress={() => filterVehicles(isNotEnglish ? 'Passenger' : 'Пассажирский')}
-                >
-                    <Text style={listStyle.buttonText}>
-                        {!isNotEnglish ? 'Passenger' : 'Пассажирский'}
-                    </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={listStyle.button}
-                    onPress={() => filterVehicles(isNotEnglish ? 'Special' : 'Спецтранспорт')}
-                >
-                    <Text style={listStyle.buttonText}>
-                        {!isNotEnglish ? 'Special' : 'Специальный'}
-                    </Text>
-                </TouchableOpacity>
-
+                 {/* Кнопки для фильтрации по категориям */}
+                <ControlButton
+                    onPress={() => filterVehicles(cargoButtonText)}
+                    text={cargoButtonText}
+                />
+                <ControlButton
+                    onPress={() => filterVehicles(passengerButtonText)}
+                    text={passengerButtonText}
+                />
+                <ControlButton
+                    onPress={() => filterVehicles(specialButtonText)}
+                    text={specialButtonText}
+                />
             </View>
         </View>
     );

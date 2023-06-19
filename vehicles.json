@@ -6,7 +6,7 @@
         "driverNameEn": "Alexander",
         "categoryRu": "Грузовой",
         "categoryEn": "Cargo",
-        "phoneNumber": "+375291111112",
+        "phoneNumber": "+7 (901) 123-4567",
         "latitude": 55.502691,
         "longitude": 37.671532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
@@ -18,7 +18,7 @@
         "driverNameEn": "Ivan",
         "categoryRu": "Пассажирский",
         "categoryEn": "Passenger",
-        "phoneNumber": "+375291111113",
+        "phoneNumber": "+7 (902) 234-5678",
         "latitude": 55.401691,
         "longitude": 37.670532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
@@ -28,9 +28,9 @@
         "name": "ТС #003",
         "driverNameRu": "Михаил",
         "driverNameEn": "Michael",
-        "categoryRu": "Спецтранспорт",
+        "categoryRu": "Специальный",
         "categoryEn": "Special",
-        "phoneNumber": "+375291111114",
+        "phoneNumber": "+7 (903) 345-6789",
         "latitude": 55.003691,
         "longitude": 37.672532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
@@ -42,7 +42,7 @@
         "driverNameEn": "Dmitri",
         "categoryRu": "Грузовой",
         "categoryEn": "Cargo",
-        "phoneNumber": "+375291111115",
+        "phoneNumber": "+7 (904) 456-7890",
         "latitude": 55.804691,
         "longitude": 37.373532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
@@ -54,7 +54,7 @@
         "driverNameEn": "Andrew",
         "categoryRu": "Пассажирский",
         "categoryEn": "Passenger",
-        "phoneNumber": "+375291111116",
+        "phoneNumber": "+7 (906) 678-9012",
         "latitude": 55.805691,
         "longitude": 37.974532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
@@ -64,9 +64,9 @@
         "name": "ТС #006",
         "driverNameRu": "Сергей",
         "driverNameEn": "Sergei",
-        "categoryRu": "Спецтранспорт",
+        "categoryRu": "Специальный",
         "categoryEn": "Special",
-        "phoneNumber": "+375291111117",
+        "phoneNumber": "+7 (905) 567-8901",
         "latitude": 55.406691,
         "longitude": 37.675532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
@@ -78,7 +78,7 @@
         "driverNameEn": "Nicholas",
         "categoryRu": "Грузовой",
         "categoryEn": "Cargo",
-        "phoneNumber": "+375291111118",
+        "phoneNumber": "+7 (907) 789-0123",
         "latitude": 55.087691,
         "longitude": 37.676532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
@@ -90,7 +90,7 @@
         "driverNameEn": "Artem",
         "categoryRu": "Пассажирский",
         "categoryEn": "Passenger",
-        "phoneNumber": "+375291111119",
+        "phoneNumber": "+7 (908) 890-1234",
         "latitude": 55.808691,
         "longitude": 37.277532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
@@ -100,9 +100,9 @@
         "name": "ТС #009",
         "driverNameRu": "Владимир",
         "driverNameEn": "Vladimir",
-        "categoryRu": "Спецтранспорт",
+        "categoryRu": "Специальный",
         "categoryEn": "Special",
-        "phoneNumber": "+375291111121",
+        "phoneNumber": "+7 (909) 901-2345",
         "latitude": 55.899691,
         "longitude": 37.678532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
@@ -114,7 +114,7 @@
         "driverNameEn": "George",
         "categoryRu": "Грузовой",
         "categoryEn": "Cargo",
-        "phoneNumber": "+375291111122",
+        "phoneNumber": "+7 (910) 012-3456",
         "latitude": 55.811691,
         "longitude": 37.669532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
@@ -126,7 +126,7 @@
         "driverNameEn": "Olga",
         "categoryRu": "Пассажирский",
         "categoryEn": "Passenger",
-        "phoneNumber": "+375291111123",
+        "phoneNumber": "+7 (920) 012-3456",
         "latitude": 55.709691,
         "longitude": 37.675532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
@@ -136,9 +136,9 @@
         "name": "ТС #012",
         "driverNameRu": "Павел",
         "driverNameEn": "Paul",
-        "categoryRu": "Спецтранспорт",
+        "categoryRu": "Специальный",
         "categoryEn": "Special",
-        "phoneNumber": "+375291111124",
+        "phoneNumber": "+7 (914) 456-7890",
         "latitude": 55.607691,
         "longitude": 37.678532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
@@ -150,7 +150,7 @@
         "driverNameEn": "Helen",
         "categoryRu": "Грузовой",
         "categoryEn": "Cargo",
-        "phoneNumber": "+375291111125",
+        "phoneNumber": "+7 (915) 567-8901",
         "latitude": 55.910691,
         "longitude": 37.979532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"
@@ -162,7 +162,7 @@
         "driverNameEn": "Maria",
         "categoryRu": "Пассажирский",
         "categoryEn": "Passenger",
-        "phoneNumber": "+375291111126",
+        "phoneNumber": "+7 (912) 234-5678",
         "latitude": 55.811691,
         "longitude": 37.877532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/1048/1048333.png"
@@ -172,9 +172,9 @@
         "name": "ТС #015",
         "driverNameRu": "Антон",
         "driverNameEn": "Anton",
-        "categoryRu": "Спецтранспорт",
+        "categoryRu": "Специальный",
         "categoryEn": "Special",
-        "phoneNumber": "+375291111127",
+        "phoneNumber": "+7 (917) 789-0123",
         "latitude": 55.609691,
         "longitude": 37.875532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/5371/5371632.png"
@@ -183,10 +183,10 @@
         "id": 16,
         "name": "ТС #016",
         "driverNameRu": "Алексей",
-        "driverNameEn": "Alexey",
+        "driverNameEn": "Alexei",
         "categoryRu": "Грузовой",
         "categoryEn": "Cargo",
-        "phoneNumber": "+375291111128",
+        "phoneNumber": "+7 (918) 890-1234",
         "latitude": 55.710691,
         "longitude": 37.672532,
         "iconImage": "https://cdn-icons-png.flaticon.com/128/530/530453.png"

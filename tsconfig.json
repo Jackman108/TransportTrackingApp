@@ -1,14 +1,6 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "typeRoots": [
-      "./node_modules/@yandex/ymaps3-types",
-    ],
-    "paths": {
-      "ymaps3/*": [
-        "./node_modules/@yandex/ymaps3-types/"
-      ]
-    },
     "strict": true,
   }
 }

@@ -1,18 +1,20 @@
-
 import { FC, useCallback, useEffect } from 'react';
 import { YMaps, Map, Placemark, ZoomControl, FullscreenControl } from '@pbe/react-yandex-maps';
 import { MAPS_API_KEY } from "@env";
-import {  Dimensions } from 'react-native';
-import { YandexMapProps } from '../../interfaces/interfaces';
+import { Dimensions } from 'react-native';
+import { VehicleMapProps } from '../interfaces/interfaces';
 
 
 //Компонент Яндекс.Карты
-const YandexMap: FC<YandexMapProps> = ({ defaultCenter, iconImage }: YandexMapProps): JSX.Element => {
+const VehicleMapYandex = ({
+    longitude,
+    latitude,
+    iconImage }: VehicleMapProps): JSX.Element => {
     const yandexMapsApiKey: string = MAPS_API_KEY || '';
 
     const defaultZoom: number = 14;
 
-//Функция для установки куки
+    //Функция для установки куки
     const setCookie = useCallback((name: string, value: string, days: number): void => {
         const date = new Date();
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -28,19 +30,25 @@ const YandexMap: FC<YandexMapProps> = ({ defaultCenter, iconImage }: YandexMapPr
 
     return (
         <section >
-            <YMaps query={{ apikey: yandexMapsApiKey }} >  
+            <YMaps query={{ apikey: yandexMapsApiKey }} >
                 <Map
                     defaultState={{
-                        center: defaultCenter,
+                        center: [
+                            longitude,
+                            latitude
+                        ],
                         zoom: defaultZoom,
                     }}
                     options={{ suppressMapOpenBlock: true }}
-                    width={windowWidth}                    
+                    width={windowWidth}
                 >
                     <ZoomControl />
                     <FullscreenControl options={{ float: 'right' }} />
                     <Placemark
-                        geometry={defaultCenter}
+                        geometry={[
+                            longitude,
+                            latitude
+                        ]}
                         options={{
                             iconLayout: 'default#image',
                             iconImageHref: iconImage,
@@ -56,4 +64,4 @@ const YandexMap: FC<YandexMapProps> = ({ defaultCenter, iconImage }: YandexMapPr
     );
 };
 
-export default YandexMap;
+export default VehicleMapYandex;
